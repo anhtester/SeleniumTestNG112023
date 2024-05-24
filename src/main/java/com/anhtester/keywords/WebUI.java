@@ -14,7 +14,7 @@ import java.util.List;
 
 public class WebUI {
 
-    public void sleep(double second){
+    public static void sleep(double second){
         try {
             Thread.sleep((long) (1000 * second));
         } catch (InterruptedException e) {
