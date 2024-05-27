@@ -6,15 +6,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.function.Function;
 
 public class WebUI {
 
-    public static void sleep(double second){
+    public static void sleep(double second) {
         try {
             Thread.sleep((long) (1000 * second));
         } catch (InterruptedException e) {
@@ -22,16 +24,17 @@ public class WebUI {
         }
     }
 
-    public static void waitForElementVisible(WebDriver driver, By by){
+    public static void waitForElementVisible(WebDriver driver, By by) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
-    public static void waitForElementVisible(WebDriver driver, By by, int second){
+
+    public static void waitForElementVisible(WebDriver driver, By by, int second) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(second));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
-    public static void waitForElementToBeClickable(WebDriver driver, By by){
+    public static void waitForElementToBeClickable(WebDriver driver, By by) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(by));
     }
@@ -79,4 +82,5 @@ public class WebUI {
             }
         }
     }
+
 }
