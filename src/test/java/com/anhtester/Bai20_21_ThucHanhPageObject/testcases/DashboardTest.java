@@ -1,7 +1,7 @@
-package com.anhtester.Bai20_ThucHanhPageObject.testcases;
+package com.anhtester.Bai20_21_ThucHanhPageObject.testcases;
 
-import com.anhtester.Bai20_ThucHanhPageObject.pages.DashboardPage;
-import com.anhtester.Bai20_ThucHanhPageObject.pages.LoginPage;
+import com.anhtester.Bai20_21_ThucHanhPageObject.pages.DashboardPage;
+import com.anhtester.Bai20_21_ThucHanhPageObject.pages.LoginPage;
 import com.anhtester.common.BaseTest;
 import org.testng.annotations.Test;
 

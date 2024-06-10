@@ -1,4 +1,4 @@
-package com.anhtester.Bai20_ThucHanhPageObject.pages;
+package com.anhtester.Bai20_21_ThucHanhPageObject.pages;
 
 import com.anhtester.keywords.WebUI;
 import org.openqa.selenium.By;
@@ -36,11 +36,16 @@ public class CustomerPage extends CommonPage {
     private By inputCountry = By.xpath("//button[@data-id='country']/following-sibling::div//input");
     private By buttonSave = By.xpath("//div[@id='profile-save-section']//button[normalize-space()='Save']");
     private By alertMessage = By.xpath("//span[@class='alert-title']");
-
+    private By totalCustomers = By.xpath("//span[text()='Total Customers']/preceding-sibling::span");
 
     //Hàm xử lý cho trang Customer
     public void clickAddNewButton() {
         WebUI.clickElement(buttonAddNewCustomer);
+    }
+
+    public String getTotalCustomers(){
+        WebUI.waitForPageLoaded(driver);
+        return driver.findElement(totalCustomers).getText();
     }
 
     public void selectLanguage(String languageName) {
@@ -80,14 +85,30 @@ public class CustomerPage extends CommonPage {
         Assert.assertEquals(driver.findElement(alertMessage).getText().trim(), "Customer added successfully.", "\uD83D\uDC1E FAIL!! The content of alert message not match.");
     }
 
-    public void checkCustomerDetail(String customerName) {
+    public void checkCustomerInTableList(String customerName) {
         WebUI.waitForPageLoaded(driver);
         WebUI.clickElement(menuCustomers);
         WebUI.waitForPageLoaded(driver);
         WebUI.setText(inputSearchCustomer, customerName);
         WebUI.waitForPageLoaded(driver);
         WebUI.sleep(2);
+
+        //Check customer name display in table
         Assert.assertTrue(WebUI.checkElementExist(driver, firstItemCustomerName), "\uD83D\uDC1E FAIL!! The customer name not display in table.");
         Assert.assertEquals(driver.findElement(firstItemCustomerName).getText(), customerName, "\uD83D\uDC1E FAILL!! The customer name not match.");
+    }
+
+    public void checkCustomerDetail(String customerName){
+        //Check cutsomer detail in Customer Detail page
+        WebUI.waitForPageLoaded(driver);
+        driver.findElement(firstItemCustomerName).click();
+        WebUI.waitForPageLoaded(driver);
+        Assert.assertEquals(driver.findElement(inputCompany).getAttribute("value"), customerName);
+        Assert.assertEquals(driver.findElement(inputVat).getAttribute("value"), "10", "FAIL!! The VAT of customer not match.");
+        Assert.assertEquals(driver.findElement(inputPhone).getAttribute("value"), "123456");
+        Assert.assertEquals(driver.findElement(inputWebsite).getAttribute("value"), "https://anhtester.com");
+        Assert.assertEquals(driver.findElement(selectGroups).getAttribute("title"), "VIP", "FAIL!! The Group of customer not match.");
+        Assert.assertEquals(driver.findElement(selectLanguage).getAttribute("title"), "Vietnamese", "FAIL!! The Language of customer not match.");
+        Assert.assertEquals(driver.findElement(inputAddress).getAttribute("value"), "Can Tho");
     }
 }

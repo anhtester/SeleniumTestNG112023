@@ -1,4 +1,4 @@
-package com.anhtester.Bai20_ThucHanhPageObject.pages;
+package com.anhtester.Bai20_21_ThucHanhPageObject.pages;
 
 import com.anhtester.keywords.WebUI;
 import org.openqa.selenium.By;

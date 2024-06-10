@@ -1,5 +1,6 @@
-package com.anhtester.Bai20_ThucHanhPageObject.pages;
+package com.anhtester.Bai20_21_ThucHanhPageObject.pages;
 
+import com.anhtester.keywords.WebUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -9,6 +10,7 @@ public class CommonPage {
 
     public CommonPage(WebDriver driver){
         this.driver = driver;
+        new WebUI(driver);
     }
 
     public By menuDashboard = By.xpath("//span[normalize-space()='Dashboard']");
@@ -18,15 +20,24 @@ public class CommonPage {
     public By itemNotifications = By.xpath("//a[contains(@class,'notifications-icon')]");
 
     public DashboardPage clickMenuDashboard(){
-        driver.findElement(menuDashboard).click();
+        WebUI.waitForPageLoaded(driver);
+        WebUI.clickElement(menuDashboard);
 
         return new DashboardPage(driver);
     }
 
     public CustomerPage clickMenuCustomer(){
-        driver.findElement(menuCustomers).click();
+        WebUI.waitForPageLoaded(driver);
+        WebUI.clickElement(menuCustomers);
 
         return new CustomerPage(driver);
+    }
+
+    public ProjectPage clickMenuProjects(){
+        WebUI.waitForPageLoaded(driver);
+        WebUI.clickElement(menuProjects);
+
+        return new ProjectPage(driver);
     }
 
 }
