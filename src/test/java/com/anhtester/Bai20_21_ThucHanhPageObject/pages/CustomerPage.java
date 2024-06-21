@@ -95,7 +95,7 @@ public class CustomerPage extends CommonPage {
 
         //Check customer name display in table
         Assert.assertTrue(WebUI.checkElementExist(driver, firstItemCustomerName), "\uD83D\uDC1E FAIL!! The customer name not display in table.");
-        Assert.assertEquals(driver.findElement(firstItemCustomerName).getText(), customerName, "\uD83D\uDC1E FAILL!! The customer name not match.");
+        Assert.assertEquals(driver.findElement(firstItemCustomerName).getText(), customerName, "\uD83D\uDC1E FAIL!! The customer name not match.");
     }
 
     public void checkCustomerDetail(String customerName){
