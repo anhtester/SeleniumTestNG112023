@@ -1,9 +1,9 @@
-package com.anhtester.Bai22_23_VietHamChungWebUI.testcases;
+package com.anhtester.Bai24_Parameter_MultiBrowser.testcases;
 
-import com.anhtester.Bai22_23_VietHamChungWebUI.pages.CustomerPage;
-import com.anhtester.Bai22_23_VietHamChungWebUI.pages.DashboardPage;
-import com.anhtester.Bai22_23_VietHamChungWebUI.pages.LoginPage;
-import com.anhtester.Bai22_23_VietHamChungWebUI.pages.ProjectPage;
+import com.anhtester.Bai24_Parameter_MultiBrowser.pages.CustomerPage;
+import com.anhtester.Bai24_Parameter_MultiBrowser.pages.DashboardPage;
+import com.anhtester.Bai24_Parameter_MultiBrowser.pages.LoginPage;
+import com.anhtester.Bai24_Parameter_MultiBrowser.pages.ProjectPage;
 import com.anhtester.common.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;

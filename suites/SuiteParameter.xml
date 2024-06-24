@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite Demo Parameter" verbose="1">
+    <parameter name="val1" value="5"></parameter>
+    <parameter name="val2" value="10"></parameter>
+    <parameter name="email" value="admin@example.com"></parameter>
+    <parameter name="password" value="123456"></parameter>
+    <parameter name="url" value="https://crm.anhtester.com/admin/authentication"></parameter>
+    <parameter name="customerName" value="Anh Tester 24062024A3"></parameter>
+
+    <test name="Demo Parameter 1">
+        <classes>
+            <class name="com.anhtester.Bai24_Parameter_MultiBrowser.DemoParameter"/>
+            <class name="com.anhtester.Bai24_Parameter_MultiBrowser.DemoParameter2"/>
+        </classes>
+    </test>
+
+<!--    <test name="Demo Parameter 2">-->
+<!--        <parameter name="customerName" value="Anh Tester 24062024A4"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.anhtester.Bai22_23_VietHamChungWebUI.testcases.CustomerTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>
